@@ -55,7 +55,7 @@ colors:
 # Optional navbar
 # links: [] # Allows for navbar (dark mode, layout, and search) without any links
 links:
-  - name: "Home"
+  - name: "Homer"
     icon: "fas fa-home"
     url: "#"
   - name: "Home Lab"
