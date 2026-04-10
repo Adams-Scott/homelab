@@ -68,7 +68,8 @@ actions:
   - title: "OliveTin: Restart"
     icon: "⚙️"
     shell: |
-      ln -sf /root/homelab/services/olivetin /etc/OliveTin
+      rm -r /etc/OliveTin
+      ln -s /root/homelab/services/olivetin /etc/OliveTin
       systemctl restart OliveTin
     timeout: 15
     description: "Reload OliveTin config after changes"
