@@ -53,3 +53,9 @@ actions:
     icon: "📋"
     shell: docker compose -f /root/homelab/services/mealie/compose.yml logs --tail 50
     timeout: 15
+
+  - title: "OliveTin: Restart"
+    icon: "⚙️"
+    shell: systemctl restart OliveTin
+    timeout: 15
+    description: "Reload OliveTin config after changes"
