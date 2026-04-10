@@ -66,6 +66,10 @@ actions:
 
   - title: "OliveTin: Restart"
     icon: "⚙️"
-    shell: systemctl restart OliveTin
+    shell: |
+      rm /etc/OliveTin/*.yaml
+      ln -s /root/homelab/services/olivetin/config.yaml /etc/OliveTin/config.yaml
+      ln -s /root/homelab/services/olivetin/docker_entities.yaml /etc/OliveTin/docker_entities.yaml
+      systemctl restart OliveTin
     timeout: 15
     description: "Reload OliveTin config after changes"
