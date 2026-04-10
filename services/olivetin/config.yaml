@@ -34,5 +34,22 @@ actions:
     shell: |
       git -C /root/homelab pull
       docker compose -f /root/homelab/services/homer/compose.yml up -d --pull always
+      docker compose -f /root/homelab/services/mealie/compose.yml up -d --pull always
     timeout: 120
     description: "Pull latest git changes then redeploy all stacks"
+
+  # Mealie
+  - title: "Mealie: Deploy"
+    icon: "🍽️"
+    shell: docker compose -f /root/homelab/services/mealie/compose.yml up -d --pull always
+    timeout: 60
+
+  - title: "Mealie: Restart"
+    icon: "🔄"
+    shell: docker compose -f /root/homelab/services/mealie/compose.yml restart
+    timeout: 30
+
+  - title: "Mealie: Logs"
+    icon: "📋"
+    shell: docker compose -f /root/homelab/services/mealie/compose.yml logs --tail 50
+    timeout: 15
