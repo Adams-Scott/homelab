@@ -26,8 +26,8 @@ This theme was created using the 60%/30%/10% rule.
 --hl-surface-500: #8d94aa;  /* secondary text */
 
 /* 10% — Accent (cobalt blue) */
---hl-accent:      #2354e6;
---hl-accent-dim:  #1a43c4;
+--hl-accent:      #5172d5;
+--hl-accent-dim:  #273c82;
 --hl-accent-glow: rgba(35,84,230,0.12);
 
 /* Text */

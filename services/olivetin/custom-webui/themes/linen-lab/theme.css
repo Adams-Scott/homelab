@@ -14,8 +14,8 @@
   --ll-slate-400: #b8bdcc;
   --ll-slate-500: #8d94aa;
 
-  --ll-accent:      #2354e6;
-  --ll-accent-dim:  #1a43c4;
+  --ll-accent:      #5172d5;
+  --ll-accent-dim:  #273c82;
   --ll-accent-glow: rgba(35, 84, 230, 0.12);
 
   --ll-text-primary:   #1a1d27;
@@ -27,7 +27,7 @@
   --ll-success: #0b8a55;
 
   /* OliveTin's own accent variable */
-  --color-accent: #2354e6;
+  --color-accent: #5172d5;
 }
 
 /* ── Base & body ───────────────────────── */
