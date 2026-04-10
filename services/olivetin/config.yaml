@@ -1,0 +1,38 @@
+# ~/homelab/services/olivetin/config.yaml
+
+logLevel: "INFO"
+logFormat: "text"
+
+listenAddressSingleHTTPFrontend: "0.0.0.0:1337"
+
+actions:
+  # Homer
+  - title: "Homer: Deploy"
+    icon: "🏠"
+    shell: docker compose -f /root/homelab/services/homer/compose.yml up -d --pull always
+    timeout: 60
+
+  - title: "Homer: Restart"
+    icon: "🔄"
+    shell: docker compose -f /root/homelab/services/homer/compose.yml restart
+    timeout: 30
+
+  - title: "Homer: Logs"
+    icon: "📋"
+    shell: docker compose -f /root/homelab/services/homer/compose.yml logs --tail 50
+    timeout: 15
+
+  # Git
+  - title: "Git: Pull homelab repo"
+    icon: "⬇️"
+    shell: git -C /root/homelab pull
+    timeout: 30
+
+  # System
+  - title: "System: Update all stacks"
+    icon: "🚀"
+    shell: |
+      git -C /root/homelab pull
+      docker compose -f /root/homelab/services/homer/compose.yml up -d --pull always
+    timeout: 120
+    description: "Pull latest git changes then redeploy all stacks"
