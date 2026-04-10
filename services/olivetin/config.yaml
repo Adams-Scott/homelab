@@ -5,7 +5,7 @@ logFormat: "text"
 
 listenAddressSingleHTTPFrontend: "0.0.0.0:1337"
 entities:
-  - file: /etc/OliveTin/entities/docker_entities.yaml
+  - file: /etc/OliveTin/docker_entities.yaml
     name: docker_entities
 
 actions:
