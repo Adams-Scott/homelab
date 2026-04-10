@@ -12,6 +12,21 @@ stylesheet: # MDI Icons
   - "https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css"
   - "assets/custom.css"
 
+colors:
+  light:
+    highlight-primary:   "#2354e6"
+    highlight-secondary: "#1a43c4"
+    highlight-hover:     "#eeece5"
+    background:          "#f7f6f2"
+    card-background:     "#ffffff"
+    text:                "#1a1d27"
+    text-header:         "#ffffff"
+    text-title:          "#1a1d27"
+    text-subtitle:       "#545c73"
+    card-shadow:         "0 2px 8px rgba(35, 84, 230, 0.08)"
+    link:                "#2354e6"
+    link-hover:          "#1a43c4"
+
 
 # Optional message
 #message:
