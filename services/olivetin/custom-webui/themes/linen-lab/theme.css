@@ -1,0 +1,210 @@
+/* ════════════════════════════════════════
+   LINEN LAB — OliveTin Theme (Light Mode)
+   60 % Warm Linen · 30 % Cool Slate · 10 % Cobalt Blue
+   ════════════════════════════════════════ */
+
+/* ── Palette ───────────────────────────── */
+:root {
+  --ll-base-50:  #f7f6f2;
+  --ll-base-100: #eeece5;
+  --ll-base-200: #e3e0d6;
+  --ll-white:    #ffffff;
+
+  --ll-slate-300: #d5d8e0;
+  --ll-slate-400: #b8bdcc;
+  --ll-slate-500: #8d94aa;
+
+  --ll-accent:      #2354e6;
+  --ll-accent-dim:  #1a43c4;
+  --ll-accent-glow: rgba(35, 84, 230, 0.12);
+
+  --ll-text-primary:   #1a1d27;
+  --ll-text-secondary: #545c73;
+  --ll-text-muted:     #9198ae;
+
+  --ll-danger:  #d93a52;
+  --ll-warning: #c47c00;
+  --ll-success: #0b8a55;
+
+  /* OliveTin's own accent variable */
+  --color-accent: #2354e6;
+}
+
+/* ── Base & body ───────────────────────── */
+body {
+  background-color: var(--ll-base-50) !important;
+  color: var(--ll-text-primary) !important;
+  font-family: 'Syne', system-ui, sans-serif;
+}
+
+/* ── Header / top bar ──────────────────── */
+header, #header {
+  background-color: var(--ll-white) !important;
+  border-bottom: 1px solid var(--ll-slate-300) !important;
+  color: var(--ll-text-primary) !important;
+}
+
+header h1, header a, #header h1, #header a {
+  color: var(--ll-text-primary) !important;
+}
+
+/* ── Sidebar / navigation ──────────────── */
+#sidebar, nav, #navigation {
+  background-color: var(--ll-white) !important;
+  border-right: 1px solid var(--ll-slate-300) !important;
+}
+
+#sidebar a, nav a {
+  color: var(--ll-text-secondary) !important;
+}
+
+#sidebar a:hover, nav a:hover,
+#sidebar a.active, nav a.active {
+  background-color: var(--ll-accent-glow) !important;
+  color: var(--ll-accent) !important;
+  border-left: 3px solid var(--ll-accent) !important;
+}
+
+/* ── Action buttons ────────────────────── */
+.action-button, button.action {
+  background-color: var(--ll-white) !important;
+  border: 1px solid var(--ll-slate-300) !important;
+  color: var(--ll-text-primary) !important;
+  font-family: 'Syne', system-ui, sans-serif;
+}
+
+.action-button:hover, button.action:hover {
+  border-color: var(--ll-accent) !important;
+  box-shadow: 0 0 0 3px var(--ll-accent-glow) !important;
+}
+
+.action-button:active, button.action:active {
+  background-color: var(--ll-base-100) !important;
+}
+
+/* ── Primary / submit buttons ──────────── */
+button[type="submit"],
+.btn-primary,
+.execute-button {
+  background-color: var(--ll-accent) !important;
+  border-color: var(--ll-accent) !important;
+  color: var(--ll-white) !important;
+}
+
+button[type="submit"]:hover,
+.btn-primary:hover,
+.execute-button:hover {
+  background-color: var(--ll-accent-dim) !important;
+  border-color: var(--ll-accent-dim) !important;
+}
+
+/* ── Dialogs / modals ──────────────────── */
+dialog, .dialog, .modal {
+  background-color: var(--ll-white) !important;
+  border: 1px solid var(--ll-slate-300) !important;
+  color: var(--ll-text-primary) !important;
+}
+
+/* ── Forms & inputs ────────────────────── */
+input, select, textarea {
+  background-color: var(--ll-white) !important;
+  border: 1px solid var(--ll-slate-400) !important;
+  color: var(--ll-text-primary) !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--ll-accent) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--ll-accent-glow) !important;
+}
+
+/* ── Links ─────────────────────────────── */
+a {
+  color: var(--ll-accent) !important;
+}
+
+a:hover {
+  color: var(--ll-accent-dim) !important;
+}
+
+/* ── Progress bars ─────────────────────── */
+progress, .progress-bar, [role="progressbar"] {
+  accent-color: var(--ll-accent);
+}
+
+/* ── Fieldsets / section cards ─────────── */
+fieldset, .fieldset, .card {
+  background-color: var(--ll-white) !important;
+  border: 1px solid var(--ll-slate-300) !important;
+}
+
+legend, .fieldset-title {
+  color: var(--ll-text-secondary) !important;
+}
+
+/* ── Tables ────────────────────────────── */
+table {
+  background-color: var(--ll-white) !important;
+  color: var(--ll-text-primary) !important;
+}
+
+th {
+  background-color: var(--ll-base-100) !important;
+  color: var(--ll-text-secondary) !important;
+  border-bottom: 1px solid var(--ll-slate-300) !important;
+}
+
+tr:nth-child(even) {
+  background-color: var(--ll-base-50) !important;
+}
+
+tr:hover {
+  background-color: var(--ll-base-100) !important;
+}
+
+/* ── Logs / output / code ──────────────── */
+pre, code, .output, .log-output {
+  background-color: var(--ll-base-200) !important;
+  color: var(--ll-text-primary) !important;
+  border: 1px solid var(--ll-slate-300) !important;
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+}
+
+/* ── Status colours ────────────────────── */
+.status-ok, .success, [class*="success"] {
+  color: var(--ll-success) !important;
+}
+
+.status-error, .danger, .error, [class*="error"] {
+  color: var(--ll-danger) !important;
+}
+
+.status-warn, .warning, [class*="warn"] {
+  color: var(--ll-warning) !important;
+}
+
+/* ── Footer ────────────────────────────── */
+footer {
+  background-color: var(--ll-white) !important;
+  border-top: 1px solid var(--ll-slate-300) !important;
+  color: var(--ll-text-muted) !important;
+}
+
+/* ── Scrollbars (WebKit) ───────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ll-base-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ll-slate-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ll-slate-500);
+}

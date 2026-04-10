@@ -2,6 +2,7 @@
 
 logLevel: "INFO"
 logFormat: "text"
+themeName: linen-lab
 
 listenAddressSingleHTTPFrontend: "0.0.0.0:1337"
 entities:
@@ -70,6 +71,7 @@ actions:
       rm /etc/OliveTin/*.yaml
       ln -s /root/homelab/services/olivetin/config.yaml /etc/OliveTin/config.yaml
       ln -s /root/homelab/services/olivetin/docker_entities.yaml /etc/OliveTin/docker_entities.yaml
+      ln -s /root/homelab/services/olivetin/custom-webui /etc/OliveTin/custom-webui
       systemctl restart OliveTin
     timeout: 15
     description: "Reload OliveTin config after changes"
