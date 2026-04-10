@@ -1,0 +1,6 @@
+- name: Homer
+  location: /root/homelab/services/homer
+  state: Enabled
+- name: Mealie
+  location: /root/homelab/services/mealie
+  state: Enabled

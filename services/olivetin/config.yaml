@@ -4,8 +4,18 @@ logLevel: "INFO"
 logFormat: "text"
 
 listenAddressSingleHTTPFrontend: "0.0.0.0:1337"
+entities:
+  - file: /etc/OliveTin/entities/docker_entities.yaml
+    name: docker_entities
 
 actions:
+  - title: Start {{ docker_entities.name }}
+    icon: box
+    shell: docker compose -f {{ docker_entities.location }}/compose.yml up -d --pull always
+    entity: docker_entities
+    triggers:
+      - Update container entity file
+
   # Homer
   - title: "Homer: Deploy"
     icon: "🏠"
