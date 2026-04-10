@@ -10,40 +10,8 @@ footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a hre
 theme: default
 stylesheet: # MDI Icons
   - "https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css"
+  - "assets/custom.css"
 
-# Optional theme customization (color overrrides)
-# overrrides can also be done using CSS vars 
-colors:
-  light:
-    highlight-primary: "#5b9fac"
-    highlight-secondary: "#7ec8b8"
-    highlight-hover: "#3a7f8c"
-    background: "#eef4f6"
-    card-background: "#f7fbfc"
-    text: "#2a3d42"
-    text-title: "#1a2d32"
-    text-subtitle: "#6a8f96"
-    text-header-nav: "#2a3d42"
-    text-tagline: "#6a8f96"
-    card-shadow: rgba(40, 90, 100, 0.08)
-    link: "#5b9fac"
-    link-hover: "#3a7f8c"
-    background-image: ""
-  dark:
-    highlight-primary: "#5b9fac"
-    highlight-secondary: "#7ec8b8"
-    highlight-hover: "#3a7f8c"
-    background: "#eef4f6"
-    card-background: "#f7fbfc"
-    text: "#2a3d42"
-    text-title: "#1a2d32"
-    text-subtitle: "#6a8f96"
-    text-header-nav: "#2a3d42"
-    text-tagline: "#6a8f96"
-    card-shadow: rgba(40, 90, 100, 0.08)
-    link: "#5b9fac"
-    link-hover: "#3a7f8c"
-    background-image: ""
 
 # Optional message
 #message:

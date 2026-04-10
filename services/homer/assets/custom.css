@@ -1,0 +1,49 @@
+/* ════════════════════════════════════════
+   LINEN LAB — Homer Theme (Light Mode)
+   60 % Warm Linen · 30 % Cool Slate · 10 % Cobalt Blue
+   ════════════════════════════════════════ */
+
+.light {
+  /* 60% — Base (warm linen) */
+  --background:       #f7f6f2;
+  --card-background:  #ffffff;
+
+  /* 10% — Accent (cobalt blue) */
+  --highlight-primary:   #2354e6;
+  --highlight-secondary: #1a43c4;
+  --highlight-hover:     #eeece5;
+
+  /* Text */
+  --text:          #1a1d27;
+  --text-header:   #ffffff;
+  --text-title:    #1a1d27;
+  --text-subtitle: #545c73;
+
+  /* Links & icons */
+  --link:       #2354e6;
+  --link-hover: #1a43c4;
+
+  /* Cards */
+  --card-shadow: 0 2px 8px rgba(35, 84, 230, 0.08);
+
+  /* No background image */
+  --background-image: none;
+}
+
+/* Scrollbars */
+.light ::-webkit-scrollbar { width: 8px; height: 8px; }
+.light ::-webkit-scrollbar-track { background: #eeece5; }
+.light ::-webkit-scrollbar-thumb { background: #b8bdcc; border-radius: 4px; }
+.light ::-webkit-scrollbar-thumb:hover { background: #8d94aa; }
+
+/* Search input border */
+.light #searchbar input {
+  border: 1px solid #d5d8e0 !important;
+  color: #1a1d27 !important;
+}
+
+/* Tag pills */
+.light .tag { background-color: #d5d8e0 !important; color: #545c73 !important; }
+
+/* Card border */
+.light .card { border: 1px solid #e3e0d6 !important; }
