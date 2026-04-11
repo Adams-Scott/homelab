@@ -14,8 +14,8 @@ actions:
     shell: 'docker compose -f {{ ContainersToRestart }}/compose.yml up -d --pull always'
     arguments:
       - name: ContainersToRestart
-        entity: container
-        title: 'Select Container'
+        entity: docker_entities
+        title: 'Select Containers'
         choices:
           - value: '{{ docker_entities.location }}'
             title: '{{ docker_entities.name }}'
