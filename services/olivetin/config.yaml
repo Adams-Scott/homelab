@@ -19,6 +19,7 @@ actions:
         choices:
           - value: '{{ docker_entities.location }}'
             title: '{{ docker_entities.name }}'
+    popupOnStart: execution-dialog
 
   - title: Start {{ docker_entities.name }}
     icon: box
