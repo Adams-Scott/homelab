@@ -1,0 +1,157 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Linen Lab",
+  "type": "light",
+  "semanticHighlighting": true,
+  "colors": {
+    "focusBorder": "#5172d580",
+    "foreground": "#1a1d27",
+    "descriptionForeground": "#545c73",
+    "errorForeground": "#d93a52",
+    "textLink.foreground": "#5172d5",
+    "textLink.activeForeground": "#273c82",
+
+    "activityBar.background": "#b8bdcc",
+    "activityBar.foreground": "#1a1d27",
+    "activityBar.inactiveForeground": "#545c73",
+    "activityBar.activeBorder": "#5172d5",
+    "activityBarBadge.background": "#5172d5",
+    "activityBarBadge.foreground": "#ffffff",
+
+    "sideBar.background": "#eeece5",
+    "sideBar.foreground": "#1a1d27",
+    "sideBar.border": "#d5d8e0",
+    "sideBarTitle.foreground": "#273c82",
+
+    "editor.background": "#f7f6f2",
+    "editor.foreground": "#1a1d27",
+    "editorLineNumber.foreground": "#9198ae",
+    "editorLineNumber.activeForeground": "#545c73",
+    "editor.selectionBackground": "#5172d533",
+    "editor.lineHighlightBackground": "#eeece5",
+    "editorCursor.foreground": "#273c82",
+
+    "editorGroupHeader.tabsBackground": "#eeece5",
+    "tab.activeBackground": "#ffffff",
+    "tab.activeForeground": "#1a1d27",
+    "tab.activeBorderTop": "#5172d5",
+    "tab.inactiveBackground": "#eeece5",
+    "tab.inactiveForeground": "#545c73",
+    "tab.border": "#d5d8e0",
+
+    "input.background": "#ffffff",
+    "input.foreground": "#1a1d27",
+    "input.border": "#d5d8e0",
+    "input.placeholderForeground": "#9198ae",
+
+    "button.background": "#5172d5",
+    "button.foreground": "#ffffff",
+    "button.hoverBackground": "#273c82",
+
+    "statusBar.background": "#5172d5",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.debuggingBackground": "#273c82",
+
+    "panel.background": "#f7f6f2",
+    "panel.border": "#d5d8e0",
+    "panelTitle.activeBorder": "#5172d5",
+
+    "terminal.background": "#f7f6f2",
+    "terminal.foreground": "#1a1d27",
+    "terminal.ansiRed": "#d93a52",
+    "terminal.ansiGreen": "#0b8a55",
+    "terminal.ansiYellow": "#c47c00",
+    "terminal.ansiBlue": "#5172d5",
+    "terminal.ansiCyan": "#2354e6"
+  },
+  "tokenColors": [
+    {
+      "name": "Comments",
+      "scope": [
+        "comment",
+        "punctuation.definition.comment"
+      ],
+      "settings": {
+        "foreground": "#9198ae",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Keywords",
+      "scope": [
+        "keyword",
+        "storage",
+        "keyword.control"
+      ],
+      "settings": {
+        "foreground": "#273c82"
+      }
+    },
+    {
+      "name": "Functions",
+      "scope": [
+        "entity.name.function",
+        "support.function",
+        "meta.function-call"
+      ],
+      "settings": {
+        "foreground": "#2354e6"
+      }
+    },
+    {
+      "name": "Types",
+      "scope": [
+        "entity.name.type",
+        "entity.name.class",
+        "support.type"
+      ],
+      "settings": {
+        "foreground": "#1a1d27",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Strings",
+      "scope": [
+        "string",
+        "constant.other.symbol"
+      ],
+      "settings": {
+        "foreground": "#0b8a55"
+      }
+    },
+    {
+      "name": "Numbers",
+      "scope": [
+        "constant.numeric",
+        "constant.language"
+      ],
+      "settings": {
+        "foreground": "#c47c00"
+      }
+    },
+    {
+      "name": "Invalid",
+      "scope": [
+        "invalid",
+        "invalid.illegal"
+      ],
+      "settings": {
+        "foreground": "#d93a52",
+        "fontStyle": "underline"
+      }
+    }
+  ],
+  "semanticTokenColors": {
+    "function": "#2354e6",
+    "method": "#2354e6",
+    "class": {
+      "foreground": "#1a1d27",
+      "bold": true
+    },
+    "type": "#273c82",
+    "enumMember": "#c47c00",
+    "property": "#545c73",
+    "parameter": "#1a1d27"
+  }
+}
