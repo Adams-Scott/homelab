@@ -239,6 +239,6 @@
   },
   "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Light+",
     "workbench.preferredLightColorTheme": "Default Light+"
 }
