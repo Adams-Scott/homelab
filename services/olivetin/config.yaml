@@ -14,10 +14,11 @@ actions:
     shell: 'docker compose -f {{ Container }}/compose.yml {{ Action }}'
     icon: <iconify-icon icon="uil:docker" width="24" height="24"></iconify-icon>
     popupOnStart: execution-dialog
+    timeout: 120
     arguments:
       - name: Container
         entity: docker_entities
-        title: 'Select Containers'
+        title: 'Select Package'
         choices:
           - value: '{{ docker_entities.location }}'
             title: '{{ docker_entities.name }}'
@@ -37,63 +38,14 @@ actions:
           - title: Up
             value: "up -d"
 
-  - title: Start {{ docker_entities.name }}
-    icon: box
-    shell: docker compose -f {{ docker_entities.location }}/compose.yml up -d --pull always
-    entity: docker_entities
-    triggers:
-      - Update container entity file
-
-  # Homer
-  - title: "Homer: Deploy"
-    icon: "🏠"
-    shell: docker compose -f /root/homelab/services/homer/compose.yml up -d --pull always
-    timeout: 60
-
-  - title: "Homer: Restart"
-    icon: "🔄"
-    shell: docker compose -f /root/homelab/services/homer/compose.yml restart
-    timeout: 30
-
-  - title: "Homer: Logs"
-    icon: "📋"
-    shell: docker compose -f /root/homelab/services/homer/compose.yml logs --tail 50
-    timeout: 15
-
   # Git
   - title: "Git: Pull homelab repo"
-    icon: "⬇️"
+    icon: <iconify-icon icon="mdi:github" width="24" height="24"></iconify-icon>
     shell: git -C /root/homelab pull
     timeout: 30
 
-  # System
-  - title: "System: Update all stacks"
-    icon: "🚀"
-    shell: |
-      git -C /root/homelab pull
-      docker compose -f /root/homelab/services/homer/compose.yml up -d --pull always
-      docker compose -f /root/homelab/services/mealie/compose.yml up -d --pull always
-    timeout: 120
-    description: "Pull latest git changes then redeploy all stacks"
-
-  # Mealie
-  - title: "Mealie: Deploy"
-    icon: "🍽️"
-    shell: docker compose -f /root/homelab/services/mealie/compose.yml up -d --pull always
-    timeout: 60
-
-  - title: "Mealie: Restart"
-    icon: "🔄"
-    shell: docker compose -f /root/homelab/services/mealie/compose.yml restart
-    timeout: 30
-
-  - title: "Mealie: Logs"
-    icon: "📋"
-    shell: docker compose -f /root/homelab/services/mealie/compose.yml logs --tail 50
-    timeout: 15
-
   - title: "OliveTin: Restart"
-    icon: "⚙️"
+    icon: <iconify-icon icon="openmoji:olive" width="72" height="72"></iconify-icon>
     shell: |
       rm -r /etc/OliveTin
       ln -s /root/homelab/services/olivetin /etc/OliveTin
