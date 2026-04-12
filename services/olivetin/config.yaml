@@ -10,8 +10,41 @@ entities:
     name: docker_entities
 
 actions:
+  - title: Container Tools
+    shell: 'docker compose -f {{ Container }}/compose.yml {{ Action }}'
+    popupOnStart: execution-dialog
+    arguments:
+      - name: Container
+        entity: docker_entities
+        title: 'Select Containers'
+        choices:
+          - value: '{{ docker_entities.location }}'
+            title: '{{ docker_entities.name }}'
+      - name: Action
+        title: 'Action'
+        choices:
+          - title: Start
+            value: start
+          - title: Stop
+            value: stop
+          - title: Restart
+            value: restart
+          - title: Events
+            value: events
+          - title: Down
+            value: down
+          - title: Up
+            value: up
+  # Start
+  # Stop
+  # Restart
+  # Events
+  # Down
+  # Up
+
   - title: start containers
     shell: 'docker compose -f {{ ContainersToRestart }}/compose.yml up -d --pull always'
+    popupOnStart: execution-dialog
     arguments:
       - name: ContainersToRestart
         entity: docker_entities
@@ -19,7 +52,6 @@ actions:
         choices:
           - value: '{{ docker_entities.location }}'
             title: '{{ docker_entities.name }}'
-    popupOnStart: execution-dialog
 
   - title: Start {{ docker_entities.name }}
     icon: box
