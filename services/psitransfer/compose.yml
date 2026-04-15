@@ -1,0 +1,10 @@
+services:
+    dumbdrop:
+        image: psitrax/psitransfer:latest
+        ports:
+            - 3000:3000
+        volumes:
+            # Where your uploaded files will land
+            - /root/docker/psitransfer:/app/uploads 
+        environment:
+            PSITRANSFER_ADMIN_PASS: secret

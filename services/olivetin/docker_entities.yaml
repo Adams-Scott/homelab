@@ -7,3 +7,6 @@
 - name: dumb
   location: /root/homelab/services/dumb
   state: Enabled
+- name: psitransfer
+  location: /root/homelab/services/psitransfer
+  state: Enabled
