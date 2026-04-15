@@ -27,8 +27,8 @@ services:
       volumes:
         - /root/docker/dumbkan:/app/data
 
-    dumbkan:
-      image: dumbwareio/dumbkan:latest
+    dumbdo:
+      image: dumbwareio/dumbdo:latest
       container_name: dumbdo
       restart: unless-stopped
       ports:
