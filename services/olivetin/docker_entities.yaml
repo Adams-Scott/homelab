@@ -4,3 +4,6 @@
 - name: Mealie
   location: /root/homelab/services/mealie
   state: Enabled
+- name: dumb
+  location: /root/homelab/services/dumb
+  state: Enabled

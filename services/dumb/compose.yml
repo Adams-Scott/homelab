@@ -1,0 +1,37 @@
+services:
+    dumbdrop:
+        image: dumbwareio/dumbdrop:latest
+        ports:
+            - 3000:3000
+        volumes:
+            # Where your uploaded files will land
+            - /root/docker/dumbdrop:/app/uploads 
+        environment:
+            # The title shown in the web interface
+            DUMBDROP_TITLE: DumbDrop
+            # Maximum file size in MB
+            MAX_FILE_SIZE: 1024
+            # Optional PIN protection (leave empty to disable)
+            #DUMBDROP_PIN: 123456
+            # Upload without clicking button
+            AUTO_UPLOAD: false
+            # The base URL for the application
+            BASE_URL: http://localhost:3000
+
+    dumbkan:
+      image: dumbwareio/dumbkan:latest
+      container_name: dumbkan
+      restart: unless-stopped
+      ports:
+        - "3001:3000"
+      volumes:
+        - /root/docker/dumbkan:/app/data
+
+    dumbkan:
+      image: dumbwareio/dumbkan:latest
+      container_name: dumbdo
+      restart: unless-stopped
+      ports:
+        - "3002:3000"
+      volumes:
+        - /root/docker/dumbdo:/app/data
