@@ -4,8 +4,8 @@ services:
     container_name: homer
     volumes:
       - ./assets:/www/assets
-    ports:
-      - "8080:8080"
+    #ports:
+    #  - "8080:8080"
     user: "1000:1000"
     restart: unless-stopped
     networks:
