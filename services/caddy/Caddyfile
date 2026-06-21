@@ -9,5 +9,5 @@
     }
 }
 olivetin.serveradams.com {
-    reverse_proxy localhost:1337
+    reverse_proxy 192.168.0.10:1337
 }
