@@ -1,6 +1,6 @@
 services:
   caddy:
-    image: ghcr.io/caddy-dns/cloudflare:2.8.4
+    image: ghcr.io/caddy-dns/cloudflare:latest
     container_name: caddy
     restart: unless-stopped
     ports:
