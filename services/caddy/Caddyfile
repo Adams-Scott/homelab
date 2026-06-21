@@ -11,3 +11,6 @@
 olivetin.{$DOMAIN} {
     reverse_proxy {$HOST_IP}:1337
 }
+homer.{$DOMAIN} {
+    reverse_proxy homer:8080
+}
