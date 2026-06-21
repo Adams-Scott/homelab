@@ -10,3 +10,6 @@
 - name: psitransfer
   location: /root/homelab/services/psitransfer
   state: Enabled
+- name: caddy
+  location: /root/homelab/services/caddy
+  state: Enabled
