@@ -9,6 +9,7 @@ services:
     environment:
       # Create a Cloudflare API token with DNS edit permissions for your zone.
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - EMAIL=${EMAIL}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
