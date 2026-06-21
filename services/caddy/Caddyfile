@@ -8,6 +8,6 @@
         resolvers 1.1.1.1
     }
 }
-olivetin.{env.DOMAIN} {
-    reverse_proxy {env.HOST_IP}:1337
+olivetin.{$DOMAIN} {
+    reverse_proxy {$HOST_IP}:1337
 }
