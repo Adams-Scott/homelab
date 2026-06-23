@@ -14,3 +14,6 @@ olivetin.{$DOMAIN} {
 homer.{$DOMAIN} {
     reverse_proxy homer:8080
 }
+ollama.{$DOMAIN}{
+    reverse_proxy open-webui:3000
+}
