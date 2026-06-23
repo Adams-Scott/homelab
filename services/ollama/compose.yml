@@ -19,7 +19,7 @@ services:
     #ports:
     #  - "3000:8080"
     environment:
-      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - ./local_open-webui_data:/app/data
     networks:
