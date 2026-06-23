@@ -13,3 +13,6 @@
 - name: caddy
   location: /root/homelab/services/caddy
   state: Enabled
+- name: ollama
+  location: /root/homelab/services/ollama
+  state: Enabled
