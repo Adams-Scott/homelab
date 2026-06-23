@@ -44,6 +44,14 @@ actions:
     shell: git -C /root/homelab pull
     timeout: 30
 
+  - title: "Git: Pull homelab repo (Force)"
+    icon: <iconify-icon icon="mdi:github" width="24" height="24"></iconify-icon>
+    shell: |
+      git -C /root/homelab fetch --all
+      git -C /root/homelab reset --hard origin/main
+    timeout: 60
+    description: "Force pull latest main, discarding all local changes"
+
   - title: "OliveTin: Restart"
     icon: <iconify-icon icon="openmoji:olive" width="72" height="72"></iconify-icon>
     shell: |
