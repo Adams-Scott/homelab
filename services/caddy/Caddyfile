@@ -17,3 +17,6 @@ homer.{$DOMAIN} {
 ollama.{$DOMAIN} {
     reverse_proxy open-webui:8080
 }
+pocketid.{$DOMAIN} {
+    reverse_proxy open-webui:8080
+}

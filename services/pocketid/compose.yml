@@ -1,0 +1,8 @@
+services:
+  pocket-id:
+    image: ghcr.io/pocket-id/pocket-id:v2
+    restart: unless-stopped
+    ports:
+      - 1411:1411
+    volumes:
+      - "./local_data:/app/data"

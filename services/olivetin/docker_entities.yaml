@@ -16,3 +16,7 @@
 - name: ollama
   location: /root/homelab/services/ollama
   state: Enabled
+- name: pocket-id
+  location: /root/homelab/services/pocketid
+  state: Enabled
+
