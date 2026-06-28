@@ -6,3 +6,5 @@ services:
       - 1411:1411
     volumes:
       - "./local_data:/app/data"
+    networks:
+      - caddy_proxy

@@ -18,5 +18,5 @@ ollama.{$DOMAIN} {
     reverse_proxy open-webui:8080
 }
 pocketid.{$DOMAIN} {
-    reverse_proxy open-webui:8080
+    reverse_proxy pocket-id:1411
 }
