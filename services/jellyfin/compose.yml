@@ -5,18 +5,18 @@ services:
     ports:
       #- 8096:8096/tcp
       - 7359:7359/udp
+      - 1900:1900/udp
     volumes:
       - ./local-config:/config
       - ./local-cache:/cache
-      - type: bind
-        source: /mnt/storage/Video
-        target: /media
+      - /mnt/storage/Shows:/data/tvshows
+      - /mnt/storage/Movies:/data/movies
     devices:
       - /dev/dri:/dev/dri
     restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery
     environment:
-      - JELLYFIN_PublishedServerUrl=https://jellyfin.serveradams.com
+      - JELLYFIN_PublishedServerUrl=${JELLYFIN_PublishedServerUrl}
     networks:
       - caddy_proxy
 
