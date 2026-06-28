@@ -20,3 +20,6 @@ ollama.{$DOMAIN} {
 pocketid.{$DOMAIN} {
     reverse_proxy pocket-id:1411
 }
+jellyfin.{$DOMAIN} {
+    reverse_proxy jellyfin:8096
+}

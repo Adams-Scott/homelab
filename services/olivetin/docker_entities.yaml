@@ -19,4 +19,7 @@
 - name: pocket-id
   location: /root/homelab/services/pocketid
   state: Enabled
+- name: jellyfin
+  location: /root/homelab/services/jellyfin
+  state: Enabled
 

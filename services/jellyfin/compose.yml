@@ -1,0 +1,25 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    ports:
+      #- 8096:8096/tcp
+      - 7359:7359/udp
+    volumes:
+      - ./local-config:/config
+      - ./local-cache:/cache
+      - type: bind
+        source: /mnt/storage/Video
+        target: /media
+    devices:
+      - /dev/dri:/dev/dri
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
+    environment:
+      - JELLYFIN_PublishedServerUrl=https://jellyfin.serveradams.com
+    networks:
+      - caddy_proxy
+
+networks:
+  caddy_proxy:
+    external: true
