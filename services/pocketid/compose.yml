@@ -8,3 +8,7 @@ services:
       - "./local_data:/app/data"
     networks:
       - caddy_proxy
+
+networks:
+  caddy_proxy:
+    external: true
