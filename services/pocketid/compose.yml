@@ -8,6 +8,13 @@ services:
       - "./local_data:/app/data"
     networks:
       - caddy_proxy
+    environment:
+      - APP_URL=${APP_URL}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - TRUST_PROXY=${TRUST_PROXY}
+      - MAXMIND_LICENSE_KEY=${MAXMIND_LICENSE_KEY}
+      - PUID=${PUID}
+      - PGID=${PGID}
 
 networks:
   caddy_proxy:
