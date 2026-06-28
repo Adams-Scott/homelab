@@ -9,8 +9,8 @@ services:
     volumes:
       - ./local-config:/config
       - ./local-cache:/cache
-      - /mnt/storage/Shows:/data/tvshows
-      - /mnt/storage/Movies:/data/movies
+      - /mnt/storage/Video/Shows:/data/tvshows
+      - /mnt/storage/Video/Movies:/data/movies
     devices:
       - /dev/dri:/dev/dri
     restart: 'unless-stopped'
