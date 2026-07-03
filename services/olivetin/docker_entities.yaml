@@ -22,4 +22,7 @@
 - name: jellyfin
   location: /root/homelab/services/jellyfin
   state: Enabled
+- name: immich
+  location: /root/homelab/services/immich
+  state: Enabled
 
