@@ -23,6 +23,6 @@ pocketid.{$DOMAIN} {
 jellyfin.{$DOMAIN} {
     reverse_proxy jellyfin:8096
 }
-immich.{$DOMAIN} {
+photos.{$DOMAIN} {
     reverse_proxy immich-server:2283
 }
