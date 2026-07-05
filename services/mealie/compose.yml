@@ -17,6 +17,9 @@ services:
       PGID: 1000
       TZ: America/Los_Angeles
       BASE_URL: ${BASE_URL}
+    networks:
+      - caddy_proxy
 
-volumes:
-  mealie-data:
+networks:
+  caddy_proxy:
+    external: true
