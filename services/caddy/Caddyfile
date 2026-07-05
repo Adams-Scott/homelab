@@ -26,3 +26,6 @@ jellyfin.{$DOMAIN} {
 photos.{$DOMAIN} {
     reverse_proxy immich-server:2283
 }
+mealie.{$DOMAIN} {
+    reverse_proxy mealie:9000
+}
