@@ -10,7 +10,7 @@ services:
         limits:
           memory: 1000M
     volumes:
-      - local-data:/app/data/
+      - ./local-data:/app/data/
     environment:
       ALLOW_SIGNUP: "false"
       PUID: 1000
