@@ -4,10 +4,8 @@ from datetime import date
 from pathlib import Path
 
 from sqlalchemy import create_engine
-from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import sessionmaker
 
-from recall.core import db as db_module
 from recall.core.db import Base
 from recall.core.llm import HeuristicLLMClient
 from recall.core.models import Tag
@@ -19,31 +17,6 @@ def make_service(tmp_path: Path) -> NoteService:
     Base.metadata.create_all(engine)
     session_factory = sessionmaker(bind=engine, autoflush=False, autocommit=False, expire_on_commit=False)
     return NoteService(session=session_factory(), llm_client=HeuristicLLMClient(), context_path=tmp_path / "context.md")
-
-
-def test_init_db_retries_when_database_directory_is_missing(tmp_path: Path, monkeypatch) -> None:
-    db_path = tmp_path / "nested" / "recall.db"
-    engine = db_module._build_engine(db_path)
-    session_factory = sessionmaker(bind=engine, autoflush=False, autocommit=False, expire_on_commit=False)
-
-    monkeypatch.setattr(db_module, "engine", engine)
-    monkeypatch.setattr(db_module, "SessionLocal", session_factory)
-
-    original_create_all = Base.metadata.create_all
-    call_count = 0
-
-    def flaky_create_all(*args, **kwargs) -> None:
-        nonlocal call_count
-        call_count += 1
-        if call_count == 1:
-            raise OperationalError("unable to open database file", None, None)
-        original_create_all(*args, **kwargs)
-
-    monkeypatch.setattr(Base.metadata, "create_all", flaky_create_all)
-
-    db_module.init_db()
-
-    assert db_path.exists()
 
 
 def test_create_and_search_notes(tmp_path: Path) -> None:

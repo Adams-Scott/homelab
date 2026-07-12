@@ -1,7 +1,6 @@
 services:
   api:
     build: .
-    container_name: linen-recall-api
     command: uvicorn recall.api.main:app --host 0.0.0.0 --port 8000
     environment:
       RECALL_DB_PATH: /data/recall.db
@@ -14,7 +13,6 @@ services:
 
   web:
     build: .
-    container_name: linen-recall-web
     command: uvicorn recall.web.main:app --host 0.0.0.0 --port 8001
     environment:
       RECALL_DB_PATH: /data/recall.db
@@ -23,12 +21,9 @@ services:
       - "8001:8001"
     volumes:
       - ./local_recall_data:/data
-    networks:
-      - caddy_proxy
 
   worker:
     build: .
-    container_name: linen-recall-worker
     command: python -m recall.worker.main
     environment:
       RECALL_DB_PATH: /data/recall.db
@@ -39,9 +34,5 @@ services:
     volumes:
       - ./local_recall_data:/data
 
-#volumes:
-#  recall_data:
-
-networks:
-  caddy_proxy:
-    external: true
+volumes:
+  local_recall_data:
