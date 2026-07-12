@@ -25,4 +25,13 @@
 - name: immich
   location: /root/homelab/services/immich
   state: Enabled
+- name: linen_clipboard
+  location: /root/homelab/services/linen_clipboard
+  state: Enabled
+- name: linen_kanban
+  location: /root/homelab/services/linen_kanban
+  state: Enabled
+- name: linen_recall
+  location: /root/homelab/services/linen_recall
+  state: Enabled
 

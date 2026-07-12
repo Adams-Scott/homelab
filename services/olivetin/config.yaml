@@ -37,6 +37,9 @@ actions:
             value: down
           - title: Up
             value: "up -d"
+          - title: Build
+            value: "up -d --build"
+
 
   # Git
   - title: "Git: Pull homelab repo"
