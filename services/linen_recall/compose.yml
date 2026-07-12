@@ -1,5 +1,6 @@
 services:
   api:
+    container_name: recall_api
     build: .
     command: uvicorn recall.api.main:app --host 0.0.0.0 --port 8000
     environment:
@@ -12,6 +13,7 @@ services:
       - ./local_recall_data:/data
 
   web:
+    container_name: recall_web
     build: .
     command: uvicorn recall.web.main:app --host 0.0.0.0 --port 8001
     environment:
@@ -23,6 +25,7 @@ services:
       - ./local_recall_data:/data
 
   worker:
+    container_name: recall_worker
     build: .
     command: python -m recall.worker.main
     environment:
