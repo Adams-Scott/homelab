@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">Journal</p>
+    <h1>Track each day in one place.</h1>
+    <p class="lede">Create or edit one entry per day, then let AI elaborate your writing with context so searching stays useful over time.</p>
+    <div class="journal-hero-actions">
+      <a class="journal-today-link" href="{{ today_url }}">Create today's journal entry</a>
+    </div>
+  </div>
+
+  <form method="get" action="/journal/search" class="card stack">
+    <label for="journal-query">Search journal</label>
+    <div class="search-row">
+      <input id="journal-query" name="q" placeholder="Search original or enriched journal text" />
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</section>
+
+<section class="card stack">
+  <div class="calendar-nav">
+    <a href="/journal?year={{ prev_year }}&month={{ prev_month }}">Previous</a>
+    <h2>{{ month_label }}</h2>
+    <a href="/journal?year={{ next_year }}&month={{ next_month }}">Next</a>
+  </div>
+
+  <div class="calendar-weekdays" aria-hidden="true">
+    <span>Sun</span>
+    <span>Mon</span>
+    <span>Tue</span>
+    <span>Wed</span>
+    <span>Thu</span>
+    <span>Fri</span>
+    <span>Sat</span>
+  </div>
+
+  <div class="calendar-grid">
+    {% for cell in calendar_cells %}
+    <a
+      href="/journal/date/{{ cell.date.isoformat() }}"
+      class="calendar-day{% if not cell.is_current_month %} other-month{% endif %}{% if cell.has_entry %} has-entry{% endif %}{% if cell.is_today %} is-today{% endif %}"
+    >
+      <span class="day-number">{{ cell.date.day }}</span>
+      {% if cell.has_entry %}
+      <span class="day-dot" title="Entry exists"></span>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

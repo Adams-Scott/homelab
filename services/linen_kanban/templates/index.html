@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boards · Linen Kanban</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">⌗</span>
+      <div class="brand-text">
+        <h1>Linen Kanban</h1>
+        <p class="brand-sub">a quiet place to track work</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="newBoardBtn">
+      <span class="btn-plus">+</span> New board
+    </button>
+  </div>
+</header>
+
+<main class="home-main">
+  <div id="boardsEmpty" class="empty-state" hidden>
+    <p class="empty-eyebrow">No boards yet</p>
+    <h2>Start your first board</h2>
+    <p>Boards are stored as plain YAML files, one per board. Give this one a name to get going.</p>
+    <button class="btn btn-primary" id="emptyStateBtn">+ New board</button>
+  </div>
+
+  <div id="boardsGrid" class="boards-grid" hidden></div>
+</main>
+
+<div class="modal-backdrop" id="newBoardModal" hidden>
+  <div class="modal">
+    <h3>Name your board</h3>
+    <input type="text" id="newBoardName" class="input" placeholder="e.g. Home Automation Backlog" maxlength="80" autocomplete="off">
+    <p class="modal-hint" id="newBoardHint"></p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="cancelNewBoard">Cancel</button>
+      <button class="btn btn-primary" id="confirmNewBoard">Create board</button>
+    </div>
+  </div>
+</div>
+
+<template id="boardCardTemplate">
+  <a class="board-card" href="#">
+    <div class="board-card-tab"></div>
+    <h3 class="board-card-name"></h3>
+    <div class="board-card-meta">
+      <span class="meta-sections"></span>
+      <span class="meta-dot">·</span>
+      <span class="meta-tasks"></span>
+    </div>
+    <button class="board-card-delete" title="Delete board" aria-label="Delete board">✕</button>
+  </a>
+</template>
+
+<script src="/static/js/index.js"></script>
+</body>
+</html>

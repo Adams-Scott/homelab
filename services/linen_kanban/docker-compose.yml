@@ -1,0 +1,9 @@
+services:
+  kanban:
+    build: .
+    container_name: linen-kanban
+    ports:
+      - "8420:5000"
+    volumes:
+      - ./data/boards:/app/data/boards
+    restart: unless-stopped

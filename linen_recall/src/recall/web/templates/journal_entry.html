@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card stack">
+  <a href="/journal?year={{ year }}&month={{ month }}">Back to journal</a>
+  <h1>Journal for {{ entry_date.isoformat() }}</h1>
+  {% if entry %}
+  <p>Status: <span class="status-pill status-{{ entry.enrichment_status.replace('_', '-') }}">{{ entry.enrichment_status.replace('_', ' ')|title }}</span></p>
+  <p class="eyebrow">Journal entry</p>
+  <p>{{ entry.original_entry }}</p>
+  <p class="eyebrow">AI elaboration</p>
+  <p>{{ entry.elaborated_entry or "Waiting for enrichment." }}</p>
+  {% else %}
+  <p class="lede">No entry exists yet for this day. Save one to start enrichment and make it searchable.</p>
+  {% endif %}
+
+  <form method="post" action="/journal/date/{{ entry_date.isoformat() }}" class="stack">
+    <label for="original_entry">Journal entry</label>
+    <textarea id="original_entry" name="original_entry" rows="10" placeholder="How did your day go?" required>{{ entry.original_entry if entry else '' }}</textarea>
+    <button type="submit">Save journal entry</button>
+  </form>
+</section>
+{% endblock %}

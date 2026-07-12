@@ -1,0 +1,11 @@
+services:
+  clipboard:
+    build: .
+    container_name: clipboard
+    restart: unless-stopped
+    ports:
+      - "8090:5000"
+    volumes:
+      - ./data:/data
+    environment:
+      - DATA_DIR=/data

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">AI context</p>
+    <h1>Edit your shared context file.</h1>
+    <p class="lede">This file is sent with every enrichment request so the AI can use stable personal facts like pets, family, or preferences.</p>
+  </div>
+
+  <form class="card stack" method="post" action="/context">
+    <label for="context_text">Context file</label>
+    <textarea id="context_text" name="context_text" rows="12" placeholder="Duckie is my dog.">{{ context_text }}</textarea>
+    <button type="submit">Save context</button>
+  </form>
+</section>
+
+<section class="card stack">
+  <p class="eyebrow">File path</p>
+  <p>{{ context_path }}</p>
+</section>
+{% endblock %}

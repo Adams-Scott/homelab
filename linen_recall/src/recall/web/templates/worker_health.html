@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card stack">
+  <h1>Worker health</h1>
+  <p class="lede">Current enrichment pipeline status and latest worker heartbeat.</p>
+
+  <div class="health-grid">
+    <article class="health-card">
+      <p class="eyebrow">Pending</p>
+      <p class="health-value">{{ status_counts.pending }}</p>
+    </article>
+    <article class="health-card">
+      <p class="eyebrow">In progress</p>
+      <p class="health-value">{{ status_counts.in_progress }}</p>
+    </article>
+    <article class="health-card">
+      <p class="eyebrow">Done</p>
+      <p class="health-value">{{ status_counts.done }}</p>
+    </article>
+  </div>
+
+  <div class="card stack">
+    <p class="eyebrow">Last worker check-in</p>
+    <p>{{ last_check_in or "No check-in recorded yet." }}</p>
+    <p class="eyebrow">Items processed on last check-in</p>
+    <p>{{ last_processed if last_processed is not none else "Unknown" }}</p>
+  </div>
+</section>
+{% endblock %}

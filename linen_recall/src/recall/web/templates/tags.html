@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">Tags</p>
+    <h1>Predefine the tags AI can use.</h1>
+    <p class="lede">Enabled tags can appear in note enrichment. Disabled tags stay saved but are excluded.</p>
+  </div>
+
+  <form class="card stack" method="post" action="/tags">
+    <label for="name">New tag</label>
+    <input id="name" name="name" placeholder="dog, travel, errands" />
+    <button type="submit">Add tag</button>
+  </form>
+</section>
+
+<section class="card stack">
+  {% if tags %}
+  <ul class="admin-list">
+    {% for tag in tags %}
+    <li class="admin-item">
+      <div>
+        <p class="admin-title">{{ tag.name }}</p>
+        <p class="admin-meta">{{ "Enabled" if tag.enabled else "Disabled" }}</p>
+      </div>
+      <div class="row">
+        <form method="post" action="/tags/{{ tag.id }}/toggle">
+          <button type="submit">{{ "Disable" if tag.enabled else "Enable" }}</button>
+        </form>
+        <form method="post" action="/tags/{{ tag.id }}/delete" onsubmit="return confirm('Delete this tag permanently?');">
+          <button type="submit" class="danger">Remove</button>
+        </form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty-state">No tags yet. Add one to start building a reusable tag set.</p>
+  {% endif %}
+</section>
+{% endblock %}

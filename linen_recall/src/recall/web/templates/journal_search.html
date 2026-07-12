@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card stack">
+  <a href="/journal">Back to journal</a>
+  <form method="get" action="/journal/search" class="stack">
+    <label for="journal-query">Search journal</label>
+    <div class="search-row">
+      <input id="journal-query" name="q" value="{{ query }}" placeholder="Search original or enriched journal text" />
+      <button type="submit">Search</button>
+    </div>
+  </form>
+
+  {% if has_searched %}
+  <p class="eyebrow">Journal search results</p>
+  {% if search_results %}
+  <ul class="results-list">
+    {% for entry in search_results %}
+    <li class="result-item">
+      <div class="result-title-row">
+        <a href="/journal/date/{{ entry.entry_date.isoformat() }}">{{ entry.entry_date.isoformat() }}</a>
+        <span class="status-pill status-{{ entry.enrichment_status.replace('_', '-') }}">{{ entry.enrichment_status.replace('_', ' ')|title }}</span>
+      </div>
+      <p>{{ entry.original_entry }}</p>
+      {% if entry.elaborated_entry %}
+      <p class="lede">{{ entry.elaborated_entry }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty-state">No matching journal entries for your search.</p>
+  {% endif %}
+  {% else %}
+  <p class="empty-state">Run a search to view journal results.</p>
+  {% endif %}
+</section>
+
+{% if has_searched and total_pages > 1 %}
+<section class="toolbar card pagination-row">
+  <span>Showing page {{ page }} of {{ total_pages }} ({{ total_results }} results)</span>
+  <div class="row">
+    {% if page > 1 %}
+    <a href="/journal/search?q={{ query }}&page={{ page - 1 }}">Previous</a>
+    {% endif %}
+    {% if page < total_pages %}
+    <a href="/journal/search?q={{ query }}&page={{ page + 1 }}">Next</a>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

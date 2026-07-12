@@ -1,0 +1,1 @@
+"""Recall note-taking application."""

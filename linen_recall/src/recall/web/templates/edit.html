@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card stack">
+  <a href="/notes/{{ note.id }}">Back</a>
+  <h1>Edit note</h1>
+  <form method="post" action="/notes/{{ note.id }}/edit" class="stack">
+    <label for="title">Title (optional)</label>
+    <input id="title" name="title" value="{{ note.title or '' }}" placeholder="Leave blank to auto-generate after enrichment" />
+    <label for="original_note">Original note</label>
+    <textarea id="original_note" name="original_note" rows="8">{{ note.original_note }}</textarea>
+    <button type="submit">Save changes</button>
+  </form>
+</section>
+{% endblock %}

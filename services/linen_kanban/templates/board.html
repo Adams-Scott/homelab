@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Board · Linen Kanban</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body data-board-id="{{ board_id }}">
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand brand-board">
+      <a href="/" class="back-link" title="All boards" aria-label="Back to all boards">←</a>
+      <span class="brand-mark">⌗</span>
+      <div class="brand-text">
+        <h1 id="boardName" class="board-title" contenteditable="true" spellcheck="false"></h1>
+        <p class="brand-sub" id="saveStatus">saved</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="addSectionBtn">
+      <span class="btn-plus">+</span> Section
+    </button>
+  </div>
+</header>
+
+<main class="board-main">
+  <div id="sectionsRow" class="sections-row"></div>
+</main>
+
+<div class="modal-backdrop" id="taskModal" hidden>
+  <div class="modal">
+    <h3 id="taskModalTitle">New task</h3>
+    <label class="field-label" for="taskTitle">Title</label>
+    <input type="text" id="taskTitle" class="input" placeholder="What needs doing?" maxlength="140" autocomplete="off">
+    <label class="field-label" for="taskDesc">Description</label>
+    <textarea id="taskDesc" class="input textarea" placeholder="Optional details…" rows="4" maxlength="2000"></textarea>
+    <div class="modal-actions modal-actions-split">
+      <button class="btn btn-danger" id="deleteTaskBtn" hidden>Delete</button>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="cancelTask">Cancel</button>
+        <button class="btn btn-primary" id="saveTask">Save task</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="confirmModal" hidden>
+  <div class="modal">
+    <h3 id="confirmModalTitle">Are you sure?</h3>
+    <p id="confirmModalBody" class="modal-hint"></p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="confirmCancel">Cancel</button>
+      <button class="btn btn-danger" id="confirmOk">Delete</button>
+    </div>
+  </div>
+</div>
+
+<template id="sectionTemplate">
+  <div class="section-card">
+    <div class="section-head">
+      <span class="section-drag-handle" title="Drag to reorder section">⠿⠿</span>
+      <h2 class="section-name" contenteditable="true" spellcheck="false"></h2>
+      <span class="section-count"></span>
+      <button class="section-delete" title="Delete section" aria-label="Delete section">✕</button>
+    </div>
+    <div class="task-list"></div>
+    <button class="add-task-btn">+ Add task</button>
+  </div>
+</template>
+
+<template id="taskCardTemplate">
+  <div class="task-card">
+    <p class="task-title"></p>
+    <p class="task-desc"></p>
+  </div>
+</template>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script src="/static/js/board.js"></script>
+</body>
+</html>

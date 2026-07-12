@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card stack">
+  <a href="/">Back</a>
+  <h1>{{ note.title or "Untitled" }}</h1>
+  <p class="eyebrow">Note #{{ note.id }}</p>
+  <p class="eyebrow">Original</p>
+  <p>{{ note.original_note }}</p>
+  <p class="eyebrow">Enriched text</p>
+  <p>{{ note.elaborated_note or "Waiting for enrichment." }}</p>
+  <p class="eyebrow">Tags</p>
+  <p>{{ note.tags or "No tags yet." }}</p>
+  <p>Status: <span class="status-pill status-{{ note.enrichment_status.replace('_', '-') }}">{{ note.enrichment_status.replace('_', ' ')|title }}</span></p>
+  <div class="row">
+    <a href="/notes/{{ note.id }}/edit">Edit</a>
+    <form method="post" action="/notes/{{ note.id }}/delete" onsubmit="return confirm('Delete this note permanently?');">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

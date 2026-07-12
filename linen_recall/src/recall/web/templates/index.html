@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">Notes</p>
+    <h1>Capture things worth remembering.</h1>
+    <p class="lede">Add a note quickly, then let AI elaborate it with context so it is easier to find later.</p>
+  </div>
+
+  <form method="get" action="/search" class="card stack">
+    <label for="q">Search notes</label>
+    <div class="search-row">
+      <input id="q" name="q" placeholder="Search title, original note, enriched text, or tags" />
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</section>
+
+<section id="new-note" class="card stack">
+  <div>
+    <p class="eyebrow">New note</p>
+    <h2>Write a note</h2>
+  </div>
+
+  <form method="post" action="/notes" class="stack">
+    <label for="title">Title (optional)</label>
+    <input id="title" name="title" placeholder="Leave blank to auto-generate after enrichment" />
+    <label for="original_note">Note</label>
+    <textarea id="original_note" name="original_note" rows="8" placeholder="Something hard to remember..." required></textarea>
+    <button type="submit">Save note</button>
+  </form>
+</section>
+{% endblock %}

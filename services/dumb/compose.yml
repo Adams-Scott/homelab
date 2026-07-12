@@ -26,12 +26,3 @@ services:
         - "3001:3000"
       volumes:
         - /root/docker/dumbkan:/app/data
-
-    dumbdo:
-      image: dumbwareio/dumbdo:latest
-      container_name: dumbdo
-      restart: unless-stopped
-      ports:
-        - "3002:3000"
-      volumes:
-        - /root/docker/dumbdo:/app/data

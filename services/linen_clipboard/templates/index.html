@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-copy">
+        <h1>Clipboard</h1>
+        <p class="subtitle">Drop text, files, or a pasted image. Set how long it sticks around.</p>
+      </div>
+      <button type="button" id="new-post-btn" class="primary-btn new-btn">New</button>
+    </header>
+
+    <section class="composer" id="composer-panel" hidden></section>
+
+    <div id="composer-modal" class="composer-modal" hidden>
+      <div class="composer-modal-backdrop" data-close="true"></div>
+      <section class="composer composer-popup" role="dialog" aria-modal="true" aria-labelledby="composer-title">
+        <div class="composer-popup-header">
+          <h2 id="composer-title">New post</h2>
+          <button type="button" id="close-composer-btn" class="icon-btn" aria-label="Close">✕</button>
+        </div>
+
+        <div class="composer-row">
+          <textarea id="text-input" placeholder="Type or paste text here… (Ctrl/Cmd+V works anywhere on the page for images too)" rows="4"></textarea>
+        </div>
+
+        <div class="composer-controls">
+          <div class="expiry-group" role="group" aria-label="Expiry">
+            <button type="button" class="expiry-btn active" data-expiry="1d">1 day</button>
+            <button type="button" class="expiry-btn" data-expiry="1w">1 week</button>
+            <button type="button" class="expiry-btn" data-expiry="1m">1 month</button>
+          </div>
+
+          <div class="composer-actions">
+            <label class="file-btn">
+              Attach file
+              <input type="file" id="file-input" hidden>
+            </label>
+            <button type="button" id="post-text-btn" class="primary-btn">Post</button>
+          </div>
+        </div>
+
+        <div id="drop-hint" class="drop-hint">Or drag &amp; drop a file anywhere on this page</div>
+      </section>
+    </div>
+
+    <section class="items">
+      <div id="empty-state" class="empty-state" hidden>
+        Nothing here yet. Post something above to get started.
+      </div>
+      <div id="items-list" class="items-list"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

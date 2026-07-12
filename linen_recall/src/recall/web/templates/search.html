@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card stack">
+  <a href="/">Back to notes</a>
+  <form method="get" action="/search" class="stack">
+    <label for="q">Search notes</label>
+    <div class="search-row">
+      <input id="q" name="q" value="{{ query }}" placeholder="Search title, original note, enriched text, or tags" />
+      <button type="submit">Search</button>
+    </div>
+  </form>
+  {% if has_searched %}
+  <p class="eyebrow">Results</p>
+  {% if notes %}
+  <ul class="results-list">
+    {% for note in notes %}
+    <li class="result-item">
+      <div class="result-title-row">
+        <a href="/notes/{{ note.id }}">{{ note.title or "Untitled" }}</a>
+        <span class="status-pill status-{{ note.enrichment_status.replace('_', '-') }}">{{ note.enrichment_status.replace('_', ' ')|title }}</span>
+      </div>
+      <p>{{ note.original_note }}</p>
+      {% if note.tags %}
+      <p class="tags">{{ note.tags }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty-state">No matching notes for your search.</p>
+  {% endif %}
+  {% else %}
+  <p class="empty-state">Run a search to view results.</p>
+  {% endif %}
+  {% if has_searched and total_pages > 1 %}
+  <div class="pagination-row">
+    <span>Showing page {{ page }} of {{ total_pages }} ({{ total_results }} results)</span>
+    <div class="row">
+      {% if page > 1 %}
+      <a href="/search?q={{ query }}&page={{ page - 1 }}">Previous</a>
+      {% endif %}
+      {% if page < total_pages %}
+      <a href="/search?q={{ query }}&page={{ page + 1 }}">Next</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
