@@ -33,5 +33,5 @@ kanban.{$DOMAIN} {
     reverse_proxy linen-kanban:5000
 }
 recall.{$DOMAIN} {
-    reverse_proxy linen-recall-web:8001
-}
+    reverse_proxy recall_web:8001
+} 
