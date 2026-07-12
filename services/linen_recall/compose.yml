@@ -11,6 +11,9 @@ services:
       - "8000:8000"
     volumes:
       - ./local_recall_data:/data
+    networks:
+      - caddy_proxy
+
 
   web:
     container_name: recall_web
@@ -23,6 +26,9 @@ services:
       - "8001:8001"
     volumes:
       - ./local_recall_data:/data
+    networks:
+      - caddy_proxy
+
 
   worker:
     container_name: recall_worker
@@ -36,6 +42,14 @@ services:
       RECALL_ENRICH_BATCH_SIZE: "10"
     volumes:
       - ./local_recall_data:/data
+    networks:
+      - caddy_proxy
+
 
 volumes:
   local_recall_data:
+
+
+networks:
+  caddy_proxy:
+    external: true
