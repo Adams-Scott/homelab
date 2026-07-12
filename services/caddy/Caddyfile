@@ -30,5 +30,5 @@ mealie.{$DOMAIN} {
     reverse_proxy mealie:9000
 }
 kanban.{$DOMAIN} {
-    reverse_proxy linen_kanban:5000
+    reverse_proxy linen-kanban:5000
 }
