@@ -9,3 +9,9 @@ services:
       - ./local_data:/data
     environment:
       - DATA_DIR=/data
+    networks:
+      - caddy_proxy
+
+networks:
+  caddy_proxy:
+    external: true
