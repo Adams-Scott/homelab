@@ -240,6 +240,8 @@ function renderItem(item) {
     dlBtn.className = "icon-btn";
     dlBtn.textContent = "Download";
     dlBtn.href = `/api/items/${item.id}/download`;
+    // Hint to the browser to download the file instead of opening it in a tab
+    dlBtn.setAttribute("download", item.original_name);
     actions.appendChild(dlBtn);
   }
 
