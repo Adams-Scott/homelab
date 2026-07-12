@@ -7,8 +7,8 @@ services:
       RECALL_DB_PATH: /data/recall.db
       RECALL_LLM_PROVIDER: heuristic
       RECALL_LLM_CONFIG_PATH: /data/llm_config.yaml
-    #ports:
-    #  - "8000:8000"
+    ports:
+      - "8000:8000"
     volumes:
       - ./local_recall_data:/data
 
@@ -19,8 +19,8 @@ services:
     environment:
       RECALL_DB_PATH: /data/recall.db
       RECALL_LLM_PROVIDER: heuristic
-    #ports:
-    #  - "8001:8001"
+    ports:
+      - "8001:8001"
     volumes:
       - ./local_recall_data:/data
     networks:
