@@ -1,29 +1,34 @@
 services:
   api:
     build: .
+    container_name: linen-recall-api
     command: uvicorn recall.api.main:app --host 0.0.0.0 --port 8000
     environment:
       RECALL_DB_PATH: /data/recall.db
       RECALL_LLM_PROVIDER: heuristic
       RECALL_LLM_CONFIG_PATH: /data/llm_config.yaml
-    ports:
-      - "8000:8000"
+    #ports:
+    #  - "8000:8000"
     volumes:
-      - ./recall_data:/data
+      - ./local_recall_data:/data
 
   web:
     build: .
+    container_name: linen-recall-web
     command: uvicorn recall.web.main:app --host 0.0.0.0 --port 8001
     environment:
       RECALL_DB_PATH: /data/recall.db
       RECALL_LLM_PROVIDER: heuristic
-    ports:
-      - "8001:8001"
+    #ports:
+    #  - "8001:8001"
     volumes:
-      - ./recall_data:/data
+      - ./local_recall_data:/data
+    networks:
+      - caddy_proxy
 
   worker:
     build: .
+    container_name: linen-recall-worker
     command: python -m recall.worker.main
     environment:
       RECALL_DB_PATH: /data/recall.db
@@ -32,7 +37,11 @@ services:
       RECALL_ENRICH_INTERVAL_SECONDS: "60"
       RECALL_ENRICH_BATCH_SIZE: "10"
     volumes:
-      - ./recall_data:/data
+      - ./local_recall_data:/data
 
-volumes:
-  recall_data:
+#volumes:
+#  recall_data:
+
+networks:
+  caddy_proxy:
+    external: true
