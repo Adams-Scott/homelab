@@ -11,6 +11,9 @@ services:
       - /dev/dri:/dev/dri
     networks:
       - caddy_proxy
+    environment:
+      - OLLAMA_VULKAN=1
+      - OLLAMA_IGPU_ENABLE=1
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
