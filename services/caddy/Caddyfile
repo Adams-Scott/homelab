@@ -29,3 +29,6 @@ photos.{$DOMAIN} {
 mealie.{$DOMAIN} {
     reverse_proxy mealie:9000
 }
+kanban.{$DOMAIN} {
+    reverse_proxy linen_kanban:5000
+}
