@@ -1,11 +1,11 @@
 services:
   clipboard:
     build: .
-    container_name: clipboard
+    container_name: linen_clipboard
     restart: unless-stopped
-    ports:
-      - "8090:5000"
+    #ports:
+    #  - "8090:5000"
     volumes:
-      - ./data:/data
+      - ./local_data:/data
     environment:
       - DATA_DIR=/data

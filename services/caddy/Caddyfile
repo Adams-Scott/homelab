@@ -34,4 +34,7 @@ kanban.{$DOMAIN} {
 }
 recall.{$DOMAIN} {
     reverse_proxy recall_web:8001
-} 
+}
+clipboard.{$DOMAIN} {
+    reverse_proxy linen_clipboard:5000
+}
