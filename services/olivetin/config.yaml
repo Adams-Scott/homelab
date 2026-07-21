@@ -40,6 +40,18 @@ actions:
           - title: Build
             value: "up -d --build"
 
+  - title: Up {{ docker_entities.name }}
+    icon: box
+    shell: docker compose up -f {{ Container }}/compose.yml -d {{ docker_entities.name }}
+    entity: docker_entities
+
+  - title: Down {{ docker_entities.name }}
+    icon: box
+    shell: docker compose -f {{ Container }}/compose.yml down {{ docker_entities.name }}
+    entity: docker_entities
+
+
+
 
   # Git
   - title: "Git: Pull homelab repo"
