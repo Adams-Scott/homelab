@@ -45,7 +45,7 @@ actions:
     shell: docker compose -f {{ docker_entities.location }}/compose.yml up -d
     entity: docker_entities
 
-  - title: Down {{ docker_entities.name}}
+  - title: Down {{ docker_entities.name }}
     icon: box
     shell: docker compose -f {{ docker_entities.location }}/compose.yml down
     entity: docker_entities
