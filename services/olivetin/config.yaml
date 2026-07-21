@@ -84,5 +84,5 @@ dashboards:
         entity: docker_entities
         type: fieldset
         contents:
-          - title: 'Start {{ docker_entities.name }}'
-          - title: 'Stop {{ docker_entities.name }}'
+          - title: 'Up {{ docker_entities.name }}'
+          - title: 'Down {{ docker_entities.name }}'
