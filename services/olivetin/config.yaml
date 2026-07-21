@@ -86,11 +86,11 @@ dashboards:
 
 
   # This is the second dashboard.
-#  - title: My Containers
-#    contents:
-#      - title: 'Container {{ docker_entities.name }}' # ({{ docker_entities.image }})'
-#        entity: docker_entities
-#        type: fieldset
-#        contents:
-#          - title: 'Up {{ docker_entities.name }}'
-#          - title: 'Down {{ docker_entities.name }}'
+  - title: My Containers
+    contents:
+      - title: 'Container {{ docker_entities.name }}' # ({{ docker_entities.image }})'
+        entity: docker_entities
+        type: fieldset
+        contents:
+          - title: 'Up {{ docker_entities.name }}'
+          - title: 'Down {{ docker_entities.name }}'
