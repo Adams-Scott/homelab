@@ -69,7 +69,7 @@ actions:
     popupOnStart: execution-dialog
     timeout: 300
 
-
+#docker inspect --format "{{.State.Health.Status}}" $(docker compose ps -q)   
 
 
   # Git
