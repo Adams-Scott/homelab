@@ -60,6 +60,14 @@ actions:
     shell: docker compose -f {{ docker_entities.location }}/compose.yml logs -f
     entity: docker_entities
     popupOnStart: execution-dialog
+    timeout: 300
+
+  - title: Pull {{ docker_entities.name }}
+    icon: box
+    shell: docker compose -f {{ docker_entities.location }}/compose.yml pull
+    entity: docker_entities
+    popupOnStart: execution-dialog
+    timeout: 300
 
 
 
