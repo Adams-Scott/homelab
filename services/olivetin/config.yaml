@@ -40,14 +40,14 @@ actions:
           - title: Build
             value: "up -d --build"
 
-  - title: Up {{ docker_entities.name }}
+  - title: Up {{docker_entities.name}}
     icon: box
-    shell: docker compose up -f {{ Container }}/compose.yml -d {{ docker_entities.name }}
+    shell: docker compose -f {{docker_entities.location}}/compose.yml up -d
     entity: docker_entities
 
-  - title: Down {{ docker_entities.name }}
+  - title: Down {{docker_entities.name}}
     icon: box
-    shell: docker compose -f {{ Container }}/compose.yml down {{ docker_entities.name }}
+    shell: docker compose -f {{docker_entities.location}}/compose.yml down
     entity: docker_entities
 
 
@@ -75,3 +75,14 @@ actions:
       systemctl restart OliveTin
     timeout: 15
     description: "Reload OliveTin config after changes"
+
+dashboards:
+  # This is the second dashboard.
+  - title: My Containers
+    contents:
+      - title: 'Container {{ docker_entities.name }}' # ({{ docker_entities.image }})'
+        entity: docker_entities
+        type: fieldset
+        contents:
+          - title: 'Start {{ docker_entities.name }}'
+          - title: 'Stop {{ docker_entities.name }}'
