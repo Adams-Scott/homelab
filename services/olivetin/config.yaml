@@ -40,7 +40,7 @@ actions:
           - title: Build
             value: "up -d --build"
 
-  - title: Up {{ docker_entities.name }}
+  - title: Up test {{ docker_entities.name }}
     icon: box
     shell: docker compose -f {{ docker_entities.location }}/compose.yml up -d
     entity: docker_entities
