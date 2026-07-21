@@ -41,29 +41,29 @@ actions:
             value: "up -d --build"
 
   - title: Up {{ docker_entities.name }}
-    icon: box
+    icon: <iconify-icon icon="ic:baseline-play-circle" width="72" height="72"></iconify-icon>
     shell: docker compose -f {{ docker_entities.location }}/compose.yml up -d
     entity: docker_entities
-
+    
   - title: Down {{ docker_entities.name }}
-    icon: box
+    icon: <iconify-icon icon="ic:baseline-stop-circle" width="72" height="72"></iconify-icon>
     shell: docker compose -f {{ docker_entities.location }}/compose.yml down
     entity: docker_entities
 
   - title: Restart {{ docker_entities.name }}
-    icon: box
+    icon: <iconify-icon icon="ic:baseline-refresh" width="72" height="72"></iconify-icon>
     shell: docker compose -f {{ docker_entities.location }}/compose.yml restart
     entity: docker_entities
 
   - title: Logs {{ docker_entities.name }}
-    icon: box
+    icon: <iconify-icon icon="ic:baseline-description" width="72" height="72"></iconify-icon>
     shell: docker compose -f {{ docker_entities.location }}/compose.yml logs -f
     entity: docker_entities
     popupOnStart: execution-dialog
     timeout: 300
 
   - title: Pull {{ docker_entities.name }}
-    icon: box
+    icon: <iconify-icon icon="ic:baseline-download" width="72" height="72"></iconify-icon>
     shell: docker compose -f {{ docker_entities.location }}/compose.yml pull
     entity: docker_entities
     popupOnStart: execution-dialog
