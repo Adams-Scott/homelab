@@ -77,6 +77,14 @@ actions:
     description: "Reload OliveTin config after changes"
 
 dashboards:
+  - title: This Server
+    contents:
+      - title: Container Tools
+      - title: "Git: Pull homelab repo"
+      - title: "Git: Pull homelab repo (Force)"
+      - title: "OliveTin: Restart"
+
+
   # This is the second dashboard.
   - title: My Containers
     contents:
