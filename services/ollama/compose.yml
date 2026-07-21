@@ -20,13 +20,11 @@ services:
     container_name: open-webui
     restart: unless-stopped
     volumes:
-      - open-webui:./local_webui
+      - ./local_webui:/app/backend/data
     #ports:
     #  - "3000:8080"
     env_file:
       - .env
-    volumes:
-      - ./local_open-webui_data:/app/data
     networks:
       - caddy_proxy
 
