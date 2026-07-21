@@ -115,4 +115,5 @@ dashboards:
           - title: 'Down {{ docker_entities.name }}'
           - title: 'Restart {{ docker_entities.name }}'
           - title: 'Logs {{ docker_entities.name }}'
+          - title: 'Pull {{ docker_entities.name }}'
 
