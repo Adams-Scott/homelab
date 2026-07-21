@@ -11,12 +11,13 @@ services:
           memory: 1000M
     volumes:
       - ./local-data:/app/data/
+    env_file:
+      - .env
     environment:
       ALLOW_SIGNUP: "false"
       PUID: 1000
       PGID: 1000
       TZ: America/Los_Angeles
-      BASE_URL: ${BASE_URL}
     networks:
       - caddy_proxy
 
