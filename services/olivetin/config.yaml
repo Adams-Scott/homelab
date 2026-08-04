@@ -108,6 +108,17 @@ actions:
     timeout: 60
     description: "Force pull latest main, discarding all local changes"
 
+  # Olivetin
+  - Title: "Olivetin: Update"
+    icon: <iconify-icon icon="openmoji:olive" width="72" height="72"></iconify-icon>
+    shell: |
+      wget https://github.com/OliveTin/OliveTin/releases/latest/download/OliveTin_linux_amd64.deb
+      dpkg -i OliveTin_linux_amd64.deb
+      rm OliveTin_linux_amd64.deb
+      systemctl restart OliveTin
+    timeout: 60
+    description: "Update OliveTin to the latest version and restart the service"
+
   - title: "OliveTin: Restart"
     icon: <iconify-icon icon="openmoji:olive" width="72" height="72"></iconify-icon>
     shell: |
