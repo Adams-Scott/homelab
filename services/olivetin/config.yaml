@@ -136,6 +136,14 @@ actions:
     timeout: 600
     description: "Update package lists and upgrade installed packages"
 
+  - title: "Server: List Available Updates"
+    icon: <iconify-icon icon="ic:baseline-list" width="72" height="72"></iconify-icon>
+    shell: |
+      apt update && apt list --upgradable
+    popupOnStart: execution-dialog
+    timeout: 120
+    description: "Refresh package lists and show packages available to upgrade"
+
   - title: "Server: Restart"
     icon: <iconify-icon icon="ic:baseline-refresh" width="72" height="72"></iconify-icon>
     shell: reboot now
@@ -152,6 +160,7 @@ dashboards:
       - title: "Git: Pull homelab repo (Force)"
       - title: "OliveTin: Restart"
       - title: "Olivetin: Update"
+      - title: "Server: List Available Updates"
       - title: "Server: Update"
       - title: "Server: Restart"
       - title: "Server: Shutdown"
