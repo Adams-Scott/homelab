@@ -69,6 +69,28 @@ actions:
     popupOnStart: execution-dialog
     timeout: 300
 
+  - title: "VPN Containers: Start"
+    icon: <iconify-icon icon="ic:baseline-play-circle" width="72" height="72"></iconify-icon>
+    shell: virsh start vpn-containers
+
+  - title: "VPN Containers: Shutdown"
+    icon: <iconify-icon icon="ic:baseline-power-settings-new" width="72" height="72"></iconify-icon>
+    shell: virsh shutdown vpn-containers
+
+  - title: "VPN Containers: Reboot"
+    icon: <iconify-icon icon="ic:baseline-refresh" width="72" height="72"></iconify-icon>
+    shell: virsh reboot vpn-containers
+
+  - title: "VPN Containers: Destroy"
+    icon: <iconify-icon icon="ic:baseline-stop-circle" width="72" height="72"></iconify-icon>
+    shell: virsh destroy vpn-containers
+
+  - title: "VPN Containers: Status"
+    icon: <iconify-icon icon="ic:baseline-info" width="72" height="72"></iconify-icon>
+    shell: virsh dominfo vpn-containers
+    popupOnStart: execution-dialog
+    timeout: 30
+
 #docker inspect --format "{{.State.Health.Status}}" $(docker compose ps -q)   
 
 
@@ -116,4 +138,12 @@ dashboards:
           - title: 'Restart {{ docker_entities.name }}'
           - title: 'Logs {{ docker_entities.name }}'
           - title: 'Pull {{ docker_entities.name }}'
+
+  - title: VMS
+    contents:
+      - title: 'VPN Containers: Start'
+      - title: 'VPN Containers: Shutdown'
+      - title: 'VPN Containers: Reboot'
+      - title: 'VPN Containers: Destroy'
+      - title: 'VPN Containers: Status'
 
