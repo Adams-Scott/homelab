@@ -135,6 +135,7 @@ dashboards:
       - title: "Git: Pull homelab repo"
       - title: "Git: Pull homelab repo (Force)"
       - title: "OliveTin: Restart"
+      - title: "Olivetin: Update"
 
 
   # This is the second dashboard.
