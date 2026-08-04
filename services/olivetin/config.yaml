@@ -109,7 +109,7 @@ actions:
     description: "Force pull latest main, discarding all local changes"
 
   # Olivetin
-  - Title: "Olivetin: Update"
+  - title: "Olivetin: Update"
     icon: <iconify-icon icon="openmoji:olive" width="72" height="72"></iconify-icon>
     shell: |
       wget https://github.com/OliveTin/OliveTin/releases/latest/download/OliveTin_linux_amd64.deb
@@ -128,6 +128,22 @@ actions:
     timeout: 15
     description: "Reload OliveTin config after changes"
 
+  - title: "Server: Update"
+    icon: <iconify-icon icon="mdi:server" width="72" height="72"></iconify-icon>
+    shell: |
+      apt update && apt upgrade -y
+    popupOnStart: execution-dialog
+    timeout: 600
+    description: "Update package lists and upgrade installed packages"
+
+  - title: "Server: Restart"
+    icon: <iconify-icon icon="ic:baseline-refresh" width="72" height="72"></iconify-icon>
+    shell: reboot now
+
+  - title: "Server: Shutdown"
+    icon: <iconify-icon icon="ic:baseline-power-settings-new" width="72" height="72"></iconify-icon>
+    shell: shutdown now
+
 dashboards:
   - title: This Server
     contents:
@@ -136,6 +152,9 @@ dashboards:
       - title: "Git: Pull homelab repo (Force)"
       - title: "OliveTin: Restart"
       - title: "Olivetin: Update"
+      - title: "Server: Update"
+      - title: "Server: Restart"
+      - title: "Server: Shutdown"
 
 
   # This is the second dashboard.
