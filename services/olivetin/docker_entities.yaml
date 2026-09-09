@@ -25,6 +25,9 @@
 - name: immich
   location: /root/homelab/services/immich
   state: Enabled
+- name: ollama_proxy
+  location: /root/homelab/services/ollama_proxy
+  state: Enabled
 - name: linen_clipboard
   location: /root/homelab/services/linen_clipboard
   state: Enabled
