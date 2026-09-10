@@ -1,33 +1,7 @@
 services:
-  ts-ollama-proxy:
-    image: tailscale/tailscale:latest
-    container_name: ts-ollama-proxy
-    hostname: ollama-proxy
-    env_file:
-      - .env
-    environment:
-      - TS_STATE_DIR=/var/lib/tailscale
-    volumes:
-      - ts-ollama-state:/var/lib/tailscale
-    cap_add:
-      - NET_ADMIN
-      - NET_RAW
-    devices:
-      - /dev/net/tun:/dev/net/tun
-    ports:
-      - "11434:11434"     # published on the sidecar since it owns the netns
-    restart: unless-stopped
-
   ollama-forward:
     image: alpine/socat
     container_name: ollama-forward
-    network_mode: "service:ts-ollama-proxy"
-    env_file:
-      - .env
-    command: tcp-listen:11434,fork,reuseaddr tcp:${OLLAMA_TAILSCALE_IP}:11434
-    depends_on:
-      - ts-ollama-proxy
+    network_mode: host
+    command: tcp-listen:11434,fork,reuseaddr,bind=192.168.0.10t tcp:10.10.10.5:11434
     restart: unless-stopped
-
-volumes:
-  ts-ollama-state:
