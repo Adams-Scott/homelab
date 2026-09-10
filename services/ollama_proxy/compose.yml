@@ -3,5 +3,5 @@ services:
     image: alpine/socat
     container_name: ollama-forward
     network_mode: host
-    command: tcp-listen:11434,fork,reuseaddr,bind=192.168.0.10t tcp:10.10.10.5:11434
+    command: tcp-listen:11434,fork,reuseaddr,bind=192.168.0.10 tcp:10.10.10.5:11434
     restart: unless-stopped
