@@ -28,6 +28,9 @@
 - name: ollama_proxy
   location: /root/homelab/services/ollama_proxy
   state: Enabled
+- name: bank
+  location: /root/homelab/services/bank
+  state: Enabled
 - name: linen_clipboard
   location: /root/homelab/services/linen_clipboard
   state: Enabled
@@ -37,4 +40,3 @@
 - name: linen_recall
   location: /root/homelab/services/linen_recall
   state: Enabled
-
