@@ -11,6 +11,8 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - "./storage:/ezbookkeeping/storage"
       - "./log:/ezbookkeeping/log"
+    networks:
+      - caddy_proxy
 networks:
   caddy_proxy:
     external: true
