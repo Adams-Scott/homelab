@@ -41,6 +41,6 @@ clipboard.{$DOMAIN} {
 bank.{$DOMAIN} {
     reverse_proxy firefly_iii_core:8080
 }
-firefly_iii_importer {
+firefly_iii_importer.{$DOMAIN} {
     reverse_proxy firefly_iii_importer:8080
 }
