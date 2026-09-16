@@ -3,11 +3,14 @@ services:
     image: mayswind/ezbookkeeping
     container_name: ezbookkeeping
     hostname: "ezbookkeeping"
-    ports:
-      - "7931:8080"
+    #ports:
+    #  - "7931:8080"
     environment:
       - "EBK_SERVER_DOMAIN=bank.serveradams.com"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "./storage:/ezbookkeeping/storage"
       - "./log:/ezbookkeeping/log"
+networks:
+  caddy_proxy:
+    external: true
