@@ -1,18 +1,18 @@
 services:
-  ezbookkeeping:
-    image: mayswind/ezbookkeeping
-    container_name: ezbookkeeping
-    hostname: "ezbookkeeping"
-    #ports:
-    #  - "7931:8080"
-    environment:
-      - "EBK_SERVER_DOMAIN=bank.serveradams.com"
+  app:
+    image: fireflyiii/core:latest
+    hostname: app
+    container_name: firefly_iii_core
+    restart: always
     volumes:
-      - "/etc/localtime:/etc/localtime:ro"
-      - "./storage:/ezbookkeeping/storage"
-      - "./log:/ezbookkeeping/log"
+      - ./upload:/var/www/html/storage/upload
+      - ./database:/var/www/html/storage/database
+    env_file: .env
     networks:
       - caddy_proxy
+    #ports:
+    #  - 80:8080
+
 networks:
   caddy_proxy:
     external: true
