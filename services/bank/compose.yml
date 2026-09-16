@@ -5,8 +5,8 @@ services:
     container_name: firefly_iii_core
     restart: always
     volumes:
-      - ./upload:/var/www/html/storage/upload
-      - ./database:/var/www/html/storage/database
+      - ./local_upload:/var/www/html/storage/upload
+      - ./local_database:/var/www/html/storage/database
     env_file: .env
     networks:
       - caddy_proxy
