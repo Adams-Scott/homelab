@@ -13,6 +13,16 @@ services:
     #ports:
     #  - 80:8080
 
+  importer:
+    image: fireflyiii/data-importer:latest
+    hostname: importer
+    container_name: firefly_iii_importer
+    restart: always
+    networks:
+      - caddy_proxy
+    #ports:
+    #  - "8081:8080"
+    env_file: .env
 networks:
   caddy_proxy:
     external: true
