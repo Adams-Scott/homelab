@@ -39,5 +39,5 @@ clipboard.{$DOMAIN} {
     reverse_proxy linen_clipboard:5000
 }
 bank.{$DOMAIN} {
-    reverse_proxy ezbookkeeping:8080
+    reverse_proxy firefly_iii_core:8080
 }
