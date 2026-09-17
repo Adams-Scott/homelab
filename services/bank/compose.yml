@@ -1,6 +1,6 @@
 services:
   app:
-    image: fireflyiii/core:latest
+    image: fireflyiii/core:develop #:latest
     hostname: app
     container_name: firefly_iii_core
     restart: always
@@ -14,7 +14,7 @@ services:
     #  - 80:8080
 
   importer:
-    image: fireflyiii/data-importer:latest
+    image: fireflyiii/data-importer:develop #:latest
     hostname: importer
     container_name: firefly_iii_importer
     restart: always
