@@ -39,5 +39,5 @@ clipboard.{$DOMAIN} {
     reverse_proxy linen_clipboard:5000
 }
 bank.{$DOMAIN} {
-    reverse_proxy actual_server:5006
+    reverse_proxy actual-actual_server-1:5006
 }
