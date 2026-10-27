@@ -10,65 +10,6 @@ entities:
     name: docker_entities
 
 actions:
-  - title: Container Tools
-    shell: 'docker compose -f {{ Container }}/compose.yml {{ Action }}'
-    icon: <iconify-icon icon="uil:docker" width="24" height="24"></iconify-icon>
-    popupOnStart: execution-dialog
-    timeout: 120
-    arguments:
-      - name: Container
-        entity: docker_entities
-        title: 'Select Package'
-        choices:
-          - value: '{{ docker_entities.location }}'
-            title: '{{ docker_entities.name }}'
-      - name: Action
-        title: 'Action'
-        choices:
-          - title: Start
-            value: start
-          - title: Stop
-            value: stop
-          - title: Restart
-            value: restart
-          - title: Events
-            value: events
-          - title: Down
-            value: down
-          - title: Up
-            value: "up -d"
-          - title: Build
-            value: "up -d --build"
-
-  - title: Up {{ docker_entities.name }}
-    icon: <iconify-icon icon="ic:baseline-play-circle" width="72" height="72"></iconify-icon>
-    shell: docker compose -f {{ docker_entities.location }}/compose.yml up -d
-    entity: docker_entities
-    
-  - title: Down {{ docker_entities.name }}
-    icon: <iconify-icon icon="ic:baseline-stop-circle" width="72" height="72"></iconify-icon>
-    shell: docker compose -f {{ docker_entities.location }}/compose.yml down
-    entity: docker_entities
-
-  - title: Restart {{ docker_entities.name }}
-    icon: <iconify-icon icon="ic:baseline-refresh" width="72" height="72"></iconify-icon>
-    shell: docker compose -f {{ docker_entities.location }}/compose.yml restart
-    entity: docker_entities
-
-  - title: Logs {{ docker_entities.name }}
-    icon: <iconify-icon icon="ic:baseline-description" width="72" height="72"></iconify-icon>
-    shell: docker compose -f {{ docker_entities.location }}/compose.yml logs -f
-    entity: docker_entities
-    popupOnStart: execution-dialog
-    timeout: 300
-
-  - title: Pull {{ docker_entities.name }}
-    icon: <iconify-icon icon="ic:baseline-download" width="72" height="72"></iconify-icon>
-    shell: docker compose -f {{ docker_entities.location }}/compose.yml pull
-    entity: docker_entities
-    popupOnStart: execution-dialog
-    timeout: 300
-
   - title: "VPN Containers: Start"
     icon: <iconify-icon icon="ic:baseline-play-circle" width="72" height="72"></iconify-icon>
     shell: virsh start vpn-containers
@@ -90,9 +31,6 @@ actions:
     shell: virsh dominfo vpn-containers
     popupOnStart: execution-dialog
     timeout: 30
-
-#docker inspect --format "{{.State.Health.Status}}" $(docker compose ps -q)   
-
 
   # Git
   - title: "Git: Pull homelab repo"
@@ -164,20 +102,6 @@ dashboards:
       - title: "Server: Update"
       - title: "Server: Restart"
       - title: "Server: Shutdown"
-
-
-  # This is the second dashboard.
-  - title: My Containers
-    contents:
-      - title: 'Container {{ docker_entities.name }}' # ({{ docker_entities.image }})'
-        entity: docker_entities
-        type: fieldset
-        contents:
-          - title: 'Up {{ docker_entities.name }}'
-          - title: 'Down {{ docker_entities.name }}'
-          - title: 'Restart {{ docker_entities.name }}'
-          - title: 'Logs {{ docker_entities.name }}'
-          - title: 'Pull {{ docker_entities.name }}'
 
   - title: VMS
     contents:
